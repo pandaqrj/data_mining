@@ -1,3 +1,4 @@
+"""角色电影评分"""
 critics = {
     'Lisa Rose': {
         'Lady in the Water': 2.5, 

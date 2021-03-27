@@ -44,13 +44,14 @@ def sim_pearson(person1, person2):
     pSum=sum([critics[person1][it]*critics[person2][it] for it in si])
     
     # 皮尔斯相关系数计算
+    # 当相关系数为0时，X和Y两变量无关系。
+    # 当X的值增大（减小），Y值增大（减小），两个变量为正相关，相关系数在0.00与1.00之间。
+    # 当X的值增大（减小），Y值减小（增大），两个变量为负相关，相关系数在-1.00与0.00之间。
     num=pSum-(sum1*sum2/n)
     den=sqrt((sum1Sq-pow(sum1,2)/n)*(sum2Sq-pow(sum2,2)/n))
     if den==0: return 0
 
-    r=num/den
-
-    # 皮尔斯相关度在-1至1之间，绝对值越大相关度越高
-    return abs(r)
+    # 返回绝对值
+    return abs(num/den)
 
 # print(sim_pearson('Lisa Rose', 'Gene Seymour')) # 0.39605901719066977
